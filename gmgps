@@ -68,3 +68,5 @@ function initMap() {
 <!-- callback=initMap により、マップの準備ができたら initMap 関数が実行される -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8uhIz9I0ZGTYeViKIuorOuwaoG9a_4aA&callback=initMap">
 </script>
+<body>
+<html>
