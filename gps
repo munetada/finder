@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>get value of GPS</title>
+<title>GPS</title>
 </head>
  
 <body>
-<div id="txt">show data here</div>                 <!-- div that shows the data -->
+<div id="txt">show data here</div>
  
 <script>
 navigator.geolocation.watchPosition( (position) => {
@@ -22,9 +22,36 @@ navigator.geolocation.watchPosition( (position) => {
  
 function displayData(lat, lng, accu) {
     var txt = document.getElementById("txt");       
-    txt.innerHTML = "latitiude, longtitude: " + lat + ", " + lng + "<br>" 
-                  + "accuracy: "       + accu;
+    txt.innerHTML = "緯度, 経度: " + lat + ", " + lng + "<br>" 
+                  + "精度: "       + accu;
 }
+function showMyPos(lat, lng) {
+    var myPos = new google.maps.LatLng(lat, lng);   
+    gmap.setCenter(myPos);                          
+    mark.setPosition(myPos);                        
+}
+function initMap() {
+    navigator.geolocation.getCurrentPosition( (position) => {
+        var lat = position.coords.latitude;         
+        var lng = position.coords.longitude;        
+        var initPos = new google.maps.LatLng(lat, lng); 
+        gmap = new google.maps.Map(mapDiv, {        
+            center: initPos,                        
+            zoom: 16                                
+        });
+        mark = new google.maps.Marker({             
+            map: gmap,                              
+            position: initPos,                      
+        });
+    }, (error) => {                                 
+    }, {
+        enableHighAccuracy: true                    
+    });
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8uhIz9I0ZGTYeViKIuorOuwaoG9a_4aA&callback=initMap">
+</script>
+
 </script>
 </body>
 </html>
