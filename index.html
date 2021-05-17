@@ -21,7 +21,6 @@
 var mapDiv = document.getElementById("mapDiv");     // 地図を置く場所
 var gmap;                                           // Googleマップの Map オブジェクトのための変数
 var mark;                                           // Googleマップの Marker オブジェクトのための変数
-
 // GPS センサの値が変化したら何らか実行する geolocation.watchPosition メソッド
 navigator.geolocation.watchPosition( (position) => {
     var lat  = position.coords.latitude;            // 緯度を取得
