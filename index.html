@@ -36,7 +36,7 @@ navigator.geolocation.watchPosition( (position) => {
 function displayData(lat, lng, accu) {
     var txt = document.getElementById("txt");       // データを表示するdiv要素の取得
     txt.innerHTML = "latitude: " + lat + "<br>" + "longtitude:" + lng + "<br>"  // データ表示
-                  + "精度: "       + accu;
+                  + "accuracy: "       + accu;
 }
 
 // 自分の位置を表示する showMyPos 関数
